@@ -4,13 +4,22 @@ A simple authentication app.
 
 ## Preview
 
-<img src="./public/Auth-App-Preview.png" alt="Project preview">
+<img src="./public/free-access.png" alt="Free access page preview">
+
+<img src="./public/Auth-App-Preview.png" alt="Auth page preview">
+
+<img src="./public/user-profile.png" alt="User profile page preview">
+
+<img src="./public/change-password.png" alt="change password page preview">
+
 ## Tools
- - [Firebase Auth REST API](https://firebase.google.com/docs/reference/rest/auth)
- 
- ## Resources
-  - [localstorage vs Cookies](https://academind.com/tutorials/localstorage-vs-cookies-xss)
- 
+
+- [Firebase Auth REST API](https://firebase.google.com/docs/reference/rest/auth)
+
+## Resources
+
+- [localstorage vs Cookies](https://academind.com/tutorials/localstorage-vs-cookies-xss)
+
 ## Dependences
 
 - [React](https://reactjs.org/docs/getting-started.html)
