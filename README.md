@@ -5,6 +5,9 @@ A simple authentication app.
 ## Tools
  - [Firebase Auth REST API](https://firebase.google.com/docs/reference/rest/auth)
  
+ ## Resources
+  - [localstorage vs Cookies](https://academind.com/tutorials/localstorage-vs-cookies-xss)
+ 
 ## Dependences
 
 - [React](https://reactjs.org/docs/getting-started.html)
