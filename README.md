@@ -2,6 +2,9 @@
 
 A simple authentication app.
 
+## Preview
+
+<img src="./public/Auth-App-Preview.png" alt="Project preview">
 ## Tools
  - [Firebase Auth REST API](https://firebase.google.com/docs/reference/rest/auth)
  
@@ -12,7 +15,6 @@ A simple authentication app.
 
 - [React](https://reactjs.org/docs/getting-started.html)
 - [React Router](https://reactrouter.com/docs/en/v6/getting-started/installation)
-
 
 ## Setting Up Locally
 
