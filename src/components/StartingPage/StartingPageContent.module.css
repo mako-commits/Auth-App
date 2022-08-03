@@ -1,4 +1,5 @@
 .starting {
+  width: 80%;
   margin: 3rem auto;
   text-align: center;
 }
@@ -13,6 +14,6 @@
 }
 @media only screen and (max-width: 500px) {
   .starting h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 }
