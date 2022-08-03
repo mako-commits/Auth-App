@@ -6,7 +6,7 @@ import AuthPage from "./pages/AuthPage";
 import HomePage from "./pages/HomePage";
 import AuthContext from "./store/auth-context";
 import ChangePasswordPage from "./pages/ChangePasswordPage";
-import FreePage from "./pages/FreePage";
+import PublicAccessPage from "./pages/PublicAccessPage";
 
 function App() {
   const authCtx = useContext(AuthContext);
@@ -17,8 +17,8 @@ function App() {
           <HomePage />
         </Route>
 
-        <Route path="/free">
-          <FreePage />
+        <Route path="/public">
+          <PublicAccessPage />
         </Route>
 
         {!authCtx.isLoggedIn && (

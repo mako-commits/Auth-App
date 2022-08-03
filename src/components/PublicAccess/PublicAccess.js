@@ -1,6 +1,6 @@
-import classes from "./FreeAccess.module.css";
+import classes from "./PublicAccess.module.css";
 
-const FreeAccess = () => {
+const PublicAccess = () => {
   return (
     <section className={classes.starting}>
       <h1>Public access page</h1>
@@ -9,4 +9,4 @@ const FreeAccess = () => {
   );
 };
 
-export default FreeAccess;
+export default PublicAccess;
