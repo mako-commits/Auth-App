@@ -6,3 +6,13 @@
 .starting h1 {
   font-size: 5rem;
 }
+
+.starting p {
+  font-weight: 500;
+  color: var(--color-red);
+}
+@media only screen and (max-width: 500px) {
+  .starting h1 {
+    font-size: 2.5rem;
+  }
+}

@@ -3,7 +3,7 @@ import classes from "./FreeAccess.module.css";
 const FreeAccess = () => {
   return (
     <section className={classes.starting}>
-      <h1>Free access page</h1>
+      <h1>Public access page</h1>
       <p>You do not need authentication to view this page</p>
     </section>
   );

@@ -24,7 +24,7 @@ const Navbar = () => {
   return (
     <nav className={classes.navbar}>
       <Link to="/" onClick={closeMenu}>
-        <div className={classes.logo}>React Auth</div>
+        <div className={classes.logo}>Auth App</div>
       </Link>
       <div onClick={handleClick} className={classes["nav-icon"]}>
         {open ? <CloseMenu /> : <Hamburger />}
@@ -45,7 +45,7 @@ const Navbar = () => {
         {!isLoggedIn && (
           <li className={classes.navItem}>
             <Link to="/auth" className={classes.navLink} onClick={closeMenu}>
-              Login
+              <button>Login</button>
             </Link>
           </li>
         )}

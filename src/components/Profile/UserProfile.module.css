@@ -6,3 +6,56 @@
 .profile h1 {
   font-size: 5rem;
 }
+.profile p {
+  width: 70vw;
+  margin: 1rem auto;
+  color: red;
+  font-weight: 500;
+}
+.btn {
+  font: inherit;
+  background-color: var(--color-dark);
+  border: 1px solid var(--color-dark);
+  color: #fff;
+  font-weight: bold;
+  padding: 0.5rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: transparent;
+  color: var(--color-dark);
+}
+
+.logoutBtn {
+  font-weight: bold;
+  padding: 0.5rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font: inherit;
+  background-color: transparent;
+  color: var(--color-dark);
+}
+.logoutBtn:hover {
+  background-color: var(--color-dark);
+  color: #fff;
+}
+.actions {
+  display: none;
+}
+
+@media only screen and (max-width: 500px) {
+  .profile h1 {
+    font-size: 2.5rem;
+  }
+  .profile p {
+    font-size: small;
+    font-weight: 600;
+  }
+  .actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+}
