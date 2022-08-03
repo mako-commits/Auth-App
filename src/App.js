@@ -27,7 +27,7 @@ function App() {
           </Route>
         )}
 
-        <Route path="/changePassword">
+        <Route path="/change-password">
           {authCtx.isLoggedIn && <ChangePasswordPage />}
           {!authCtx.isLoggedIn && <Redirect to="/auth" />}
         </Route>

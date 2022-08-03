@@ -2,6 +2,8 @@ import { useState, useRef, useContext } from "react";
 import AuthContext from "../../store/auth-context";
 import classes from "./AuthForm.module.css";
 import { useHistory } from "react-router-dom";
+
+const API_KEY = process.env.REACT_APP_API_KEY;
 const AuthForm = () => {
   const history = useHistory();
   const emailInputRef = useRef();
@@ -24,14 +26,13 @@ const AuthForm = () => {
 
     //* Add extra validation
     setIsLoading(true);
+
     let url;
 
     if (isLogin) {
-      url =
-        "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCInQn3x8yrYqyw-ZoSWrVc_27qLfmyGD0";
+      url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${API_KEY}`;
     } else {
-      url =
-        "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCInQn3x8yrYqyw-ZoSWrVc_27qLfmyGD0";
+      url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${API_KEY}`;
     }
     fetch(url, {
       method: "POST",
@@ -68,7 +69,7 @@ const AuthForm = () => {
         );
         authCtx.login(data.idToken, expirationTime.toISOString());
         setErrorMessage("");
-        history.replace("/");
+        history.replace("/profile");
       })
       .catch((error, data) => {
         // setErrorMessage(data.error.message);
@@ -103,7 +104,7 @@ const AuthForm = () => {
             className={classes.toggle}
             onClick={switchAuthModeHandler}
           >
-            {isLogin ? "Create new account" : "Login with existing account"}
+            {isLogin ? "Create a new account" : "Login with existing account"}
           </button>
           {errorMessage && <p className={classes.error}>{errorMessage}</p>}
         </div>

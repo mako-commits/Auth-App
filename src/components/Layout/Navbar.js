@@ -49,10 +49,22 @@ const Navbar = () => {
             </Link>
           </li>
         )}
+
         {isLoggedIn && (
           <li className={classes.navItem}>
             <Link to="/profile" className={classes.navLink} onClick={closeMenu}>
               Profile
+            </Link>
+          </li>
+        )}
+        {isLoggedIn && (
+          <li className={classes.navItem}>
+            <Link
+              to="/change-password"
+              className={classes.navLink}
+              onClick={closeMenu}
+            >
+              Change Password
             </Link>
           </li>
         )}
