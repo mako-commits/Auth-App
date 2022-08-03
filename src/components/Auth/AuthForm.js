@@ -64,6 +64,7 @@ const AuthForm = () => {
       })
       .then((data) => {
         //transform
+        //get current time and add it expiresIn and multiply bt 1000 to convert to millisecond
         const expirationTime = new Date(
           new Date().getTime() + +data.expiresIn * 1000
         );
@@ -74,7 +75,7 @@ const AuthForm = () => {
       .catch((error, data) => {
         // setErrorMessage(data.error.message);
         alert(error.message);
-        console.log(error.message);
+        // console.log(error.message);
       });
   };
   return (

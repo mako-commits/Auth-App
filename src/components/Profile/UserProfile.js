@@ -22,7 +22,7 @@ const UserProfile = () => {
         </mark>
       </p>
       <div className={classes.actions}>
-        <Link to="/changePassword">
+        <Link to="/change-password">
           <button className={classes.btn}>Change Password</button>
         </Link>
 
