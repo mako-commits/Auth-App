@@ -1,7 +1,7 @@
 import { useState, useRef, useContext } from "react";
 import AuthContext from "../../store/auth-context";
 import classes from "./AuthForm.module.css";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 const AuthForm = () => {
@@ -52,7 +52,7 @@ const AuthForm = () => {
         } else {
           return res.json().then((data) => {
             //show error modal
-            console.log(data.error.message);
+            // console.log(data.error.message);
             // let errorMessage = "Authentication failed";
             if (data && data.error && data.error.message) {
               setErrorMessage(data.error.message);
@@ -99,6 +99,7 @@ const AuthForm = () => {
           {!isLoading && (
             <button>{isLogin ? "Login" : "Create Account"}</button>
           )}
+
           {isLoading && <button>Loading...</button>}
           <button
             type="button"
@@ -109,6 +110,7 @@ const AuthForm = () => {
           </button>
           {errorMessage && <p className={classes.error}>{errorMessage}</p>}
         </div>
+        {isLogin && <Link to="/forgotten-password">Forgotten Password?</Link>}
       </form>
     </section>
   );

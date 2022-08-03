@@ -7,6 +7,8 @@ import HomePage from "./pages/HomePage";
 import AuthContext from "./store/auth-context";
 import ChangePasswordPage from "./pages/ChangePasswordPage";
 import PublicAccessPage from "./pages/PublicAccessPage";
+import ForgottenPasswordPage from "./pages/ForgottenPasswordPage";
+import RedirectPage from "./pages/RedirectPage";
 
 function App() {
   const authCtx = useContext(AuthContext);
@@ -21,6 +23,16 @@ function App() {
           <PublicAccessPage />
         </Route>
 
+        {!authCtx.isLoggedIn && (
+          <Route path="/forgotten-password">
+            <ForgottenPasswordPage />
+          </Route>
+        )}
+        {!authCtx.isLoggedIn && (
+          <Route path="/forgotten-password-redirect">
+            <RedirectPage />
+          </Route>
+        )}
         {!authCtx.isLoggedIn && (
           <Route path="/auth">
             <AuthPage />
