@@ -1,11 +1,9 @@
 import { useRef, useState } from "react";
-// import { useHistory } from "react-router-dom";
 import classes from "./ForgottenPassword.module.css";
 import SuccessMessage from "./SuccessMessage";
 const API_KEY = process.env.REACT_APP_API_KEY;
 
 const ForgottenPassword = () => {
-  // const history = useHistory();
   const enteredEmailInputRef = useRef();
   const [isLoading, setIsLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -32,21 +30,17 @@ const ForgottenPassword = () => {
         if (res.ok) {
           alert("Password Reset Email Sent");
           setSuccess(true);
-          // history.replace("/forgotten-password-redirect");
-          // console.log(res.json());
           return res.json();
         } else {
           res.json().then((data) => {
             if (data && data.error && data.error.message) {
               alert(data.error.message);
-              // console.log(data.error.message);
               throw new Error(data.error.message);
             }
           });
         }
       })
       .catch((error) => {
-        console.log(error);
         alert(error);
         setIsLoading(false);
       });
@@ -71,8 +65,6 @@ const ForgottenPassword = () => {
               {!isLoading && <button>Reset Password</button>}
 
               {isLoading && <button>Sending...</button>}
-
-              {/* {errorMessage && <p className={classes.error}>{errorMessage}</p>} */}
             </div>
           </form>
         </div>
