@@ -1,13 +1,14 @@
 import { useRef, useState } from "react";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import classes from "./ForgottenPassword.module.css";
-
+import SuccessMessage from "./SuccessMessage";
 const API_KEY = process.env.REACT_APP_API_KEY;
 
 const ForgottenPassword = () => {
-  const history = useHistory();
+  // const history = useHistory();
   const enteredEmailInputRef = useRef();
   const [isLoading, setIsLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -30,7 +31,8 @@ const ForgottenPassword = () => {
         setIsLoading(false);
         if (res.ok) {
           alert("Password Reset Email Sent");
-          history.replace("/forgotten-password-redirect");
+          setSuccess(true);
+          // history.replace("/forgotten-password-redirect");
           // console.log(res.json());
           return res.json();
         } else {
@@ -52,25 +54,31 @@ const ForgottenPassword = () => {
 
   return (
     <section className={classes.resetPassword}>
-      <h1>Forgotten Password</h1>
-      <form className={classes.form} onSubmit={submitHandler}>
-        <div className={classes.control}>
-          <label htmlFor="user-email">Enter Email Adddress</label>
-          <input
-            type="email"
-            id="user-email"
-            required
-            ref={enteredEmailInputRef}
-          />
-        </div>
-        <div className={classes.action}>
-          {!isLoading && <button>Reset Password</button>}
+      {!success && (
+        <div>
+          <h1>Forgotten Password</h1>
+          <form className={classes.form} onSubmit={submitHandler}>
+            <div className={classes.control}>
+              <label htmlFor="user-email">Enter Email Adddress</label>
+              <input
+                type="email"
+                id="user-email"
+                required
+                ref={enteredEmailInputRef}
+              />
+            </div>
+            <div className={classes.action}>
+              {!isLoading && <button>Reset Password</button>}
 
-          {isLoading && <button>Sending...</button>}
+              {isLoading && <button>Sending...</button>}
 
-          {/* {errorMessage && <p className={classes.error}>{errorMessage}</p>} */}
+              {/* {errorMessage && <p className={classes.error}>{errorMessage}</p>} */}
+            </div>
+          </form>
         </div>
-      </form>
+      )}
+
+      {success && <SuccessMessage />}
     </section>
   );
 };

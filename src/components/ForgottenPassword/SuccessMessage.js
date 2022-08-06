@@ -1,7 +1,7 @@
 import React from "react";
+import classes from "./SuccessMessage.module.css";
 
-import classes from "./PasswordRestRedirect.module.css";
-const PasswordResetRedirect = () => {
+const SuccessMessage = () => {
   return (
     <section className={classes.redirectPage}>
       <div className={classes.redirectMessage}>
@@ -17,4 +17,4 @@ const PasswordResetRedirect = () => {
   );
 };
 
-export default PasswordResetRedirect;
+export default SuccessMessage;
