@@ -35,19 +35,9 @@ const UserProfile = () => {
       .then((res, data) => {
         setIsLoading(false);
         if (res.ok) {
-          // const userDetails = res.json().then((data) => {
-          //   const user = data.users[0];
-          //   console.log(user);
-          // });
-          // return userDetails;
           return res.json().then((data) => {
             setUser(data.users);
             console.log(data.users[0]);
-            // if (data.users[0].emailVerified === true) {
-            //   setIsVerified(true);
-            // } else {
-            //   setIsVerified(false);
-            // }
           });
         } else {
           return res.json().then((data) => {
@@ -63,12 +53,6 @@ const UserProfile = () => {
         }
       })
       .then((data) => {
-        //transform
-        //get current time and add it expiresIn and multiply bt 1000 to convert to millisecond
-        // const expirationTime = new Date(
-        //   new Date().getTime() + +data.expiresIn * 1000
-        // );
-        // authCtx.login(data.idToken, expirationTime.toISOString());
         // setErrorMessage("");
       })
       .catch((error, data) => {
@@ -77,12 +61,6 @@ const UserProfile = () => {
         // console.log(error.message);
       });
   };
-
-  // if (user[0].emailVerified === true) {
-  //   setIsVerified(true);
-  // } else {
-  //   setIsVerified(false);
-  // }
   return (
     <section className={classes.profile}>
       <h1>Your User Profile Page</h1>

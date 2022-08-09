@@ -24,7 +24,7 @@ const Navbar = () => {
   return (
     <nav className={classes.navbar}>
       <Link to="/" onClick={closeMenu}>
-        <div className={classes.logo}>Auth App</div>
+        <div className={classes.logo}>IAM App</div>
       </Link>
       <div onClick={handleClick} className={classes["nav-icon"]}>
         {open ? <CloseMenu /> : <Hamburger />}
