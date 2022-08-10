@@ -8,7 +8,7 @@ const VerifyEmail = () => {
   const [isLoading, setIsLoading] = useState(false);
   const authCtx = useContext(AuthContext);
   const id = authCtx.token;
-  console.log(id);
+  // console.log(id);
   const verifyEmailHandler = () => {
     fetch(
       `https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=${API_KEY}`,

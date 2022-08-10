@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import AuthContext from "../../store/auth-context";
 import { useContext, useState } from "react";
 import VerifyEmail from "../VerifyEmail/VerifyEmail";
+import DeleteAccount from "../DeleteAccount/DeleteAccount";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 const UserProfile = () => {
@@ -95,6 +96,7 @@ const UserProfile = () => {
           Get user Details
         </button>
         <VerifyEmail />
+        <DeleteAccount />
       </div>
       <div className={classes.actions}>
         <Link to="/change-password">
