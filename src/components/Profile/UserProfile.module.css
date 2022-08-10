@@ -40,10 +40,8 @@
   background-color: var(--color-dark);
   color: #fff;
 }
+
 .actions {
-  display: none;
-}
-.access {
   display: flex;
   justify-content: center;
   gap: 1rem;
@@ -61,10 +59,5 @@
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-  }
-  .access {
-    margin-bottom: 1rem;
-    flex-direction: column;
-    align-items: center;
   }
 }

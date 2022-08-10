@@ -4,15 +4,16 @@ import classes from "./Navbar.module.css";
 import AuthContext from "../../store/auth-context";
 import Hamburger from "../../icons/Hamburger";
 import CloseMenu from "../../icons/CloseMenu";
+import Logout from "../Actions/Logout";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const authCtx = useContext(AuthContext);
   const isLoggedIn = authCtx.isLoggedIn;
 
-  const logoutHandler = () => {
-    authCtx.logout();
-  };
+  // const logoutHandler = () => {
+  //   authCtx.logout();
+  // };
 
   const handleClick = () => {
     setOpen(!open);
@@ -70,9 +71,7 @@ const Navbar = () => {
         )}
         {isLoggedIn && (
           <li className={classes.navItem} onClick={closeMenu}>
-            <button onClick={logoutHandler} className={classes.navLink}>
-              Logout
-            </button>
+            <Logout />
           </li>
         )}
       </ul>
