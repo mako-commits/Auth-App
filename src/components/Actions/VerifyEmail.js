@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import { Button } from "react-bootstrap";
 import AuthContext from "../../store/auth-context";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
@@ -7,8 +8,9 @@ const VerifyEmail = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const authCtx = useContext(AuthContext);
+
   const id = authCtx.token;
-  console.log(id);
+
   const verifyEmailHandler = () => {
     fetch(
       `https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=${API_KEY}`,
@@ -23,7 +25,7 @@ const VerifyEmail = () => {
         },
       }
     )
-      .then((res, data) => {
+      .then((res) => {
         setIsLoading(false);
         if (res.ok) {
           // const userInfo = data;
@@ -47,11 +49,6 @@ const VerifyEmail = () => {
       })
       .then((data) => {
         //transform
-        //get current time and add it expiresIn and multiply bt 1000 to convert to millisecond
-        // const expirationTime = new Date(
-        //   new Date().getTime() + +data.expiresIn * 1000
-        // );
-        // authCtx.login(data.idToken, expirationTime.toISOString());
         // setErrorMessage("");
       })
       .catch((error, data) => {
@@ -61,9 +58,9 @@ const VerifyEmail = () => {
       });
   };
   return (
-    <button onClick={verifyEmailHandler} className="btnAlt">
+    <Button onClick={verifyEmailHandler} variant="dark">
       Verify Email
-    </button>
+    </Button>
   );
 };
 

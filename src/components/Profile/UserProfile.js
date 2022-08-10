@@ -11,13 +11,10 @@ const API_KEY = process.env.REACT_APP_API_KEY;
 
 const UserProfile = () => {
   const authCtx = useContext(AuthContext);
-  const [errorMessage, setErrorMessage] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
   const [isVerified, setIsVerified] = useState(null);
   const [user, setUser] = useState([]);
 
   const id = authCtx.token;
-  // console.log(id);
 
   const fetchUserData = () => {
     fetch(
@@ -32,40 +29,33 @@ const UserProfile = () => {
         },
       }
     )
-      .then((res, data) => {
-        setIsLoading(false);
+      .then((res) => {
         if (res.ok) {
-          return res.json().then((data) => {
-            setUser(data.users[0]);
-            // console.log(data.users[0]);
-            if (data.users[0].emailVerified) {
-              setIsVerified(true);
-            } else {
-              setIsVerified(false);
-            }
-          });
+          return res.json();
         } else {
           return res.json().then((data) => {
             //show error modal
             console.log(data.error.message);
-            // let errorMessage = "Authentication failed";
             if (data && data.error && data.error.message) {
-              setErrorMessage(data.error.message);
+              alert(data.error.message);
+            } else {
+              alert("Something went wrong");
             }
-            // alert(data.error.message);
             throw new Error(data.error.message);
           });
         }
       })
       .then((data) => {
-        // setErrorMessage("");
+        setUser(data.users[0]);
+        if (data.users[0].emailVerified) {
+          setIsVerified(true);
+        } else {
+          setIsVerified(false);
+        }
       })
-      .catch((error, data) => {
-        // setErrorMessage(data.error.message);
+      .catch((error) => {
         alert(error.message);
-        // console.log(error.message);
       });
-    // const date = new Date(user[0].createdAt).getDate();
   };
 
   useEffect(() => {
@@ -75,17 +65,26 @@ const UserProfile = () => {
   return (
     <section className={classes.profile}>
       <h1>Your User Profile Page</h1>
+
+      {isVerified && (
+        <h5>
+          {" "}
+          Your email <em>{user.email}</em> has been verified!
+        </h5>
+      )}
+      {!isVerified && (
+        <p>
+          {" "}
+          Your email<em>{user.email}</em> has not been verified!
+        </p>
+      )}
       <p>
         This page can only be accessed if you are an authenticated user. You
         also have access to perform the following actions like
       </p>
-
-      {isVerified && <h5> Your email {user.email} has been verified!</h5>}
-      {!isVerified && <p> Your email {user.email} has not been verified!</p>}
-
       <div className={classes.actions}>
         <Link to="/change-password">
-          <button className={classes.btn}>Change Password</button>
+          <Button variant="dark">Change Password</Button>
         </Link>
         <VerifyEmail />
         <Logout />

@@ -58,17 +58,7 @@ const Navbar = () => {
             </Link>
           </li>
         )}
-        {isLoggedIn && (
-          <li className={classes.navItem}>
-            <Link
-              to="/change-password"
-              className={classes.navLink}
-              onClick={closeMenu}
-            >
-              Change Password
-            </Link>
-          </li>
-        )}
+
         {isLoggedIn && (
           <li className={classes.navItem} onClick={closeMenu}>
             <Logout />

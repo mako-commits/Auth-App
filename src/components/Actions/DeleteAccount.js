@@ -44,6 +44,7 @@ const DeleteAccount = () => {
       }
     });
   };
+
   const submitHandler = (event) => {
     event.preventDefault();
     const enteredValue = newDeleteInputRef.current.value;
@@ -54,6 +55,7 @@ const DeleteAccount = () => {
       alert("Wrong Value");
     }
   };
+
   return (
     <>
       <Button variant="danger" onClick={handleShow}>
@@ -80,7 +82,7 @@ const DeleteAccount = () => {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="outline-secondary" onClick={handleClose}>
             Close
           </Button>
           <Button variant="danger" onClick={submitHandler}>

@@ -2,7 +2,8 @@ import { useState, useRef, useContext } from "react";
 import AuthContext from "../../store/auth-context";
 import classes from "./AuthForm.module.css";
 import { Link, useHistory } from "react-router-dom";
-
+import Form from "react-bootstrap/Form";
+import FloatingLabel from "react-bootstrap/FloatingLabel";
 const API_KEY = process.env.REACT_APP_API_KEY;
 const AuthForm = () => {
   const history = useHistory();
@@ -55,9 +56,11 @@ const AuthForm = () => {
             // console.log(data.error.message);
             // let errorMessage = "Authentication failed";
             if (data && data.error && data.error.message) {
+              alert(data.error.message);
               setErrorMessage(data.error.message);
+            } else {
+              alert("Something went wrong");
             }
-            // alert(data.error.message);
             throw new Error(data.error.message);
           });
         }
@@ -72,29 +75,36 @@ const AuthForm = () => {
         setErrorMessage("");
         history.replace("/profile");
       })
-      .catch((error, data) => {
+      .catch((error) => {
         // setErrorMessage(data.error.message);
         alert(error.message);
+        setIsLoading(false);
         // console.log(error.message);
       });
   };
+
   return (
     <section className={classes.auth}>
       <h1>{isLogin ? "Login" : "Sign Up"}</h1>
-      <form onSubmit={submitHandler}>
-        <div className={classes.control}>
-          <label htmlFor="email">Your Email</label>
-          <input type="email" id="email" required ref={emailInputRef} />
-        </div>
-        <div className={classes.control}>
-          <label htmlFor="password">Your Password</label>
-          <input
+      <Form onSubmit={submitHandler}>
+        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control
+            type="email"
+            placeholder="name@example.com"
+            required
+            ref={emailInputRef}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control
             type="password"
-            id="password"
+            placeholder="password"
             required
             ref={passwordInputRef}
           />
-        </div>
+        </Form.Group>
         <div className={classes.actions}>
           {!isLoading && (
             <button>{isLogin ? "Login" : "Create Account"}</button>
@@ -111,7 +121,7 @@ const AuthForm = () => {
           {errorMessage && <p className={classes.error}>{errorMessage}</p>}
         </div>
         {isLogin && <Link to="/forgotten-password">Forgotten Password?</Link>}
-      </form>
+      </Form>
     </section>
   );
 };
