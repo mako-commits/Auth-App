@@ -1,6 +1,6 @@
-# Auth-App
+# IAM-App
 
-A simple authentication app.
+A simple identity and access management (IAM) app.
 
 ## Preview
 
