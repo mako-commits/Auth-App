@@ -43,6 +43,7 @@ const SignUp = () => {
       .then((res) => {
         setIsLoading(false);
         if (res.ok) {
+          //  history.replace("/email-verification");
           return res.json();
         } else {
           return res.json().then((data) => {
@@ -77,11 +78,12 @@ const SignUp = () => {
       });
   };
   return (
-    <>
-      <h3 className="mb-3">Create your account</h3>
+    <section>
+      <h1 className="my-5  text-dark">Create your account</h1>
       <Form onSubmit={submitHandler}>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
           <Form.Control
+            size="lg"
             type="email"
             placeholder="Email Address"
             required
@@ -90,6 +92,7 @@ const SignUp = () => {
         </Form.Group>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput2">
           <Form.Control
+            size="lg"
             type="password"
             placeholder="Password"
             required
@@ -97,14 +100,14 @@ const SignUp = () => {
           />
         </Form.Group>
         <div className={classes.actions}>
-          <Button variant="primary" type="submit">
+          <Button variant="primary" type="submit" size="lg" className="my-3">
             {isLoading ? "Loading…" : "Sign Up"}
           </Button>
 
           {errorMessage && <p className={classes.error}>{errorMessage}</p>}
         </div>
       </Form>
-    </>
+    </section>
   );
 };
 

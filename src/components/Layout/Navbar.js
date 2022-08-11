@@ -11,10 +11,6 @@ const Navbar = () => {
   const authCtx = useContext(AuthContext);
   const isLoggedIn = authCtx.isLoggedIn;
 
-  // const logoutHandler = () => {
-  //   authCtx.logout();
-  // };
-
   const handleClick = () => {
     setOpen(!open);
   };

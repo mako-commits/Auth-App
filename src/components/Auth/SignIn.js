@@ -78,10 +78,11 @@ const SignIn = () => {
   };
   return (
     <>
-      <h3 className="mb-3">Sign in to your account.</h3>
+      <h1 className="my-5  text-dark">Sign in to your account.</h1>
       <Form onSubmit={submitHandler}>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
           <Form.Control
+            size="lg"
             type="email"
             placeholder="Email Address"
             required
@@ -90,6 +91,7 @@ const SignIn = () => {
         </Form.Group>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput2">
           <Form.Control
+            size="lg"
             type="password"
             placeholder="Password"
             required
@@ -97,10 +99,12 @@ const SignIn = () => {
           />
         </Form.Group>
         <div className={classes.actions}>
-          <Button variant="primary" type="submit">
+          <Button variant="primary" type="submit" size="lg" className="my-3">
             {isLoading ? "Loading…" : "Sign In"}
           </Button>
-          <Link to="/forgotten-password">Forgot your password?</Link>
+          <Link to="/forgotten-password" className={classes.link}>
+            Forgot your password?
+          </Link>
           {errorMessage && <p className={classes.error}>{errorMessage}</p>}
         </div>
       </Form>

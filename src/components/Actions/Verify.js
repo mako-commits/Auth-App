@@ -1,12 +1,10 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { Button } from "react-bootstrap";
 import AuthContext from "../../store/auth-context";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
-const VerifyEmail = () => {
-  const [errorMessage, setErrorMessage] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+const Verify = () => {
   const authCtx = useContext(AuthContext);
 
   const id = authCtx.token;
@@ -26,7 +24,6 @@ const VerifyEmail = () => {
       }
     )
       .then((res) => {
-        setIsLoading(false);
         if (res.ok) {
           // const userInfo = data;
           // console.log(userInfo);
@@ -40,9 +37,9 @@ const VerifyEmail = () => {
             //show error modal
             console.log(data.error.message);
             if (data && data.error && data.error.message) {
-              setErrorMessage(data.error.message);
+              alert(data.error.message);
             }
-            // alert(data.error.message);
+
             throw new Error(data.error.message);
           });
         }
@@ -64,4 +61,4 @@ const VerifyEmail = () => {
   );
 };
 
-export default VerifyEmail;
+export default Verify;

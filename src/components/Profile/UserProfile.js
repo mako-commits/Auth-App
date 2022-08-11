@@ -2,7 +2,7 @@ import classes from "./UserProfile.module.css";
 import { Link } from "react-router-dom";
 import AuthContext from "../../store/auth-context";
 import { useContext, useState, useEffect } from "react";
-import VerifyEmail from "../Actions/VerifyEmail";
+import VerifyEmail from "../Actions/Verify";
 import DeleteAccount from "../Actions/DeleteAccount";
 import Button from "react-bootstrap/Button";
 import Logout from "../Actions/Logout";
@@ -67,16 +67,16 @@ const UserProfile = () => {
       <h1>Your User Profile Page</h1>
 
       {isVerified && (
-        <h5>
+        <h5 className="text-success">
           {" "}
           Your email <em>{user.email}</em> has been verified!
         </h5>
       )}
       {!isVerified && (
-        <p>
+        <h5 className="text-warning">
           {" "}
-          Your email<em>{user.email}</em> has not been verified!
-        </p>
+          Your email <em>{user.email}</em> has not been verified!
+        </h5>
       )}
       <p>
         This page can only be accessed if you are an authenticated user. You

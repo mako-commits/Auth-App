@@ -7,12 +7,7 @@ const AuthForm = () => {
   return (
     <section className={classes.auth}>
       {/* <h1>{isLogin ? "Login" : "Sign Up"}</h1> */}
-      <Tabs
-        defaultActiveKey="signIn"
-        id="justify-tab-example"
-        className="mb-3"
-        justify
-      >
+      <Tabs defaultActiveKey="signIn" id="tab" className="mb-3" justify>
         <Tab eventKey="signUp" title="Sign Up" className={classes.active}>
           <SignUp />
         </Tab>

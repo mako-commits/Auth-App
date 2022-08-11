@@ -1,13 +1,17 @@
 .auth {
   margin: 3rem auto;
   width: 95%;
-  max-width: 25rem;
+  max-width: 40rem;
   border-radius: 6px;
-  background-color: #212529;
+  /* background-color: #212529; */
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   padding: 1rem;
   text-align: center;
   color: #fff;
+}
+.link {
+  color: var(--color-dark);
+  font-size: 1.3rem;
 }
 
 .auth h1 {
@@ -39,7 +43,7 @@
 
 .actions {
   margin-top: 1.5rem;
-  display: flex;
+  display: grid;
   flex-direction: column;
   gap: 1.5rem;
   align-items: center;
