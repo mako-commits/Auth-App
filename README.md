@@ -6,11 +6,15 @@ A simple identity and access management (IAM) app.
 
 <img src="./public/free-access.png" alt="Free access page preview">
 
-<img src="./public/Auth-App-Preview.png" alt="Auth page preview">
+<img src="./public/sign-in.png" alt="change password page preview">
+
+<img src="./public/sign-out.png" alt="change password page preview">
 
 <img src="./public/user-profile.png" alt="User profile page preview">
 
 <img src="./public/change-password.png" alt="change password page preview">
+
+<img src="./public/delete-account.png" alt="change password page preview">
 
 ## Tools
 
