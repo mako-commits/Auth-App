@@ -28,6 +28,7 @@ A simple identity and access management (IAM) app.
 
 - [React](https://reactjs.org/docs/getting-started.html)
 - [React Router](https://reactrouter.com/docs/en/v6/getting-started/installation)
+- [React Boostrap](https://react-bootstrap.github.io/getting-started/introduction)
 
 ## Setting Up Locally
 
